@@ -13,13 +13,21 @@
 <script type="text/javascript">
 
 document.getElementById("btn_jump").onclick = function (ev) {
-  let param = {
-    jumpUrl: 'https://directbanktest.xmbankonline.com/szmy/h5/pages/activity/query_deposit.html',
-    isNeedDeviceId: '1'
-  };
-  AlipayJSBridge.call('jumpThirdParty', param, res => {
+
+
+  AlipayJSBridge.call('LoginPage', res => {
     console.log("jumpThirdParty", JSON.stringify(res))
+    let srt = JSON.stringify(res.data)
+    let param = {
+      jumpUrl: 'https://directbanktest.xmbankonline.com/szmy/h5/pages/activity/query_deposit.html?data=' + srt,
+      isNeedDeviceId: '1'
+    };
+    AlipayJSBridge.call('jumpThirdParty', param, res => {
+      console.log("jumpThirdParty", JSON.stringify(res))
+    })
+
   })
+
 }
 
 </script>
