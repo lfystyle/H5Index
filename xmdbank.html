@@ -5,7 +5,7 @@
 </head>
 <body>
 <div id="main-content">
-  <button id="btn_jump">跳转</button>
+  <button id="btn_jump">跳转 2</button>
 </div>
 </body>
 
@@ -16,7 +16,7 @@ document.getElementById("btn_jump").onclick = function (ev) {
 
 
   AlipayJSBridge.call('LoginPage', res => {
-    console.log("jumpThirdParty", JSON.stringify(res))
+    console.log("LoginPage", JSON.stringify(res))
     let srt = JSON.stringify(res.data)
     let param = {
       jumpUrl: 'https://directbanktest.xmbankonline.com/szmy/h5/pages/activity/query_deposit.html?data=' + srt,
