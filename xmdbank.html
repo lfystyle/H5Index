@@ -5,7 +5,7 @@
 </head>
 <body>
 <div id="main-content">
-  <button class="btn" id="btn_jump">跳转 5</button>
+  <button class="btn" id="btn_jump">跳转</button>
 </div>
 </body>
 
@@ -13,7 +13,6 @@
 <script type="text/javascript">
 
 document.getElementById("btn_jump").onclick = function (ev) {
-
 
   AlipayJSBridge.call('LoginPage', res => {
     console.log("LoginPage", JSON.stringify(res))
@@ -41,9 +40,11 @@ document.getElementById("btn_jump").onclick = function (ev) {
 
 <style type="text/css">
 .btn {
-  margin: auto;
-  width: 20rem;
-  height: 15rem;
+  display: block;
+  margin: 6rem auto;
+  width: 80%;
+  font-size: 3rem;
+  height: 10rem;
 }
 
 </style>
