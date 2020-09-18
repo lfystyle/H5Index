@@ -18,6 +18,12 @@ document.getElementById("btn_jump").onclick = function (ev) {
   AlipayJSBridge.call('LoginPage', res => {
     console.log("LoginPage", JSON.stringify(res))
     let srt = JSON.stringify(res.data)
+
+    AlipayJSBridge.call('ThirdDecrypt', {decryptData: srt}, res => {
+      console.log("ThirdDecrypt", JSON.stringify(res))
+    })
+
+
     let param = {
       jumpUrl: 'https://directbanktest.xmbankonline.com/szmy/h5/pages/activity/query_deposit.html?data=' + srt,
       isNeedDeviceId: '1'
