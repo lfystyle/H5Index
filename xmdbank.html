@@ -8,6 +8,8 @@
   <button class="btn" id="btn_jump">跳转</button>
   <button class="btn" id="btn_qmm">趣满满</button>
 
+  <button class="btn" id="btn_sm">私 募</button>
+
 </div>
 </body>
 
@@ -38,7 +40,6 @@ document.getElementById("btn_jump").onclick = function (ev) {
 }
 
 
-
 document.getElementById("btn_qmm").onclick = function (ev) {
 
   AlipayJSBridge.call('LoginPage', res => {
@@ -60,6 +61,23 @@ document.getElementById("btn_qmm").onclick = function (ev) {
 
   })
 
+}
+
+
+document.getElementById("btn_sm").onclick = function (ev) {
+  let params = {
+    type: "0",
+    isRequestDataType: "1",
+    cashierType: "2",
+    sceneType: '021',
+    prodId: "0043",
+    productPrice: "111",
+    orderMoney: "2222",
+    orderAmt: "33"
+  };
+  AlipayJSBridge.call('getPayPassword', params, res => {
+    console.log("LoginPage", JSON.stringify(res))
+  })
 }
 
 
