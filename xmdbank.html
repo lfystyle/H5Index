@@ -7,7 +7,7 @@
 <div id="main-content">
   <button class="btn" id="btn_jump">跳转</button>
   <button class="btn" id="btn_qmm">趣满满</button>
-
+  <button class="btn" id="btn_jcj">积存金</button>
   <button class="btn" id="btn_sm">私 募</button>
 
 </div>
@@ -37,6 +37,21 @@ document.getElementById("btn_jump").onclick = function (ev) {
 
   })
 
+}
+
+document.getElementById("btn_jcj").onclick = function (ev) {
+  AlipayJSBridge.call('LoginPage', res => {
+    console.log("LoginPage", JSON.stringify(res))
+    let srt = JSON.stringify(res.data)
+    console.log("加密参数", srt);
+    let param = {
+      jumpUrl: 'https://directbanktest.xmbankonline.com?data=' + srt,
+      isNeedDeviceId: '1'
+    };
+    AlipayJSBridge.call('jumpThirdParty', param, res => {
+      console.log("jumpThirdParty", JSON.stringify(res))
+    })
+  })
 }
 
 
