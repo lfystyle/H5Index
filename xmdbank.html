@@ -43,6 +43,7 @@ document.getElementById("btn_jcj").onclick = function (ev) {
   AlipayJSBridge.call('LoginPage', res => {
     console.log("LoginPage", JSON.stringify(res))
     let srt = JSON.stringify(res.data)
+    srt = encodeURIComponent(srt);
     console.log("加密参数", srt);
     let param = {
       jumpUrl: 'https://directbanktest.xmbankonline.com?data=' + srt,
