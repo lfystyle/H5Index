@@ -11,6 +11,7 @@
   <button class="btn" id="btn_jjcs">基金超市</button>
   <button class="btn" id="btn_sm">私 募</button>
   <button class="btn" id="btn_share">分 享</button>
+  <button class="btn" id="btn_db">兑 吧</button>
 
 </div>
 </body>
@@ -130,6 +131,14 @@ document.getElementById("btn_share").onclick = function (ev) {
   })
 }
 
+document.getElementById("btn_db").onclick = function (ev) {
+  let params = {
+    jumpUrl: "https://78445.activity-1.m.duiba.com.cn/projectx/p56421abe/index.html?appID=78534",
+  };
+  AlipayJSBridge.call('jumpIPO', params, res => {
+    console.log("jumpIPO", JSON.stringify(res))
+  })
+}
 
 </script>
 
