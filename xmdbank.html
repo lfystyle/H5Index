@@ -8,7 +8,9 @@
   <button class="btn" id="btn_jump">跳转</button>
   <button class="btn" id="btn_qmm">趣满满</button>
   <button class="btn" id="btn_jcj">积存金</button>
+  <button class="btn" id="btn_jjcs">基金超市</button>
   <button class="btn" id="btn_sm">私 募</button>
+  <button class="btn" id="btn_share">分 享</button>
 
 </div>
 </body>
@@ -55,6 +57,22 @@ document.getElementById("btn_jcj").onclick = function (ev) {
   })
 }
 
+document.getElementById("btn_jjcs").onclick = function (ev) {
+  AlipayJSBridge.call('LoginPage', res => {
+    console.log("LoginPage", JSON.stringify(res))
+    let srt = JSON.stringify(res.data)
+    srt = encodeURIComponent(srt);
+    console.log("加密参数", srt);
+    let param = {
+      jumpUrl: 'https://xmbank.66toutou.com:8445/#/?sourceId=F000004601&data=' + srt,
+      isNeedDeviceId: '1'
+    };
+    AlipayJSBridge.call('jumpThirdParty', param, res => {
+      console.log("jumpThirdParty", JSON.stringify(res))
+    })
+  })
+}
+
 
 document.getElementById("btn_qmm").onclick = function (ev) {
 
@@ -83,6 +101,22 @@ document.getElementById("btn_qmm").onclick = function (ev) {
 document.getElementById("btn_sm").onclick = function (ev) {
   let params = {
     type: "0",
+    isRequestDataType: "1",
+    cashierType: "2",
+    sceneType: '021',
+    prodId: "0043",
+    productPrice: "111",
+    orderMoney: "2222",
+    orderAmt: "33"
+  };
+  AlipayJSBridge.call('getPayPassword', params, res => {
+    console.log("LoginPage", JSON.stringify(res))
+  })
+}
+
+document.getElementById("btn_share").onclick = function (ev) {
+  let params = {
+    apiName: "0",
     isRequestDataType: "1",
     cashierType: "2",
     sceneType: '021',
