@@ -6,19 +6,29 @@
 </head>
 <body>
 <div id="main-content">
-    <button class="btn" id="btn_bzj">保证金跳转</button>
-    <button class="btn" id="btn_qmm">趣满满</button>
-    <button class="btn" id="btn_jcj">积存金</button>
-    <button class="btn" id="btn_jjcs">基金超市</button>
-    <button class="btn" id="btn_sm">私 募</button>
-    <button class="btn" id="btn_share">分 享</button>
-    <button class="btn" id="btn_db">兑 吧</button>
+    <div class="line">
+        <button class="btn" id="btn_bzj">保证金跳转</button>
+        <button class="btn" id="btn_qmm">趣满满</button>
+        <button class="btn" id="btn_jcj">积存金</button>
+    </div>
+    <div class="line">
+        <button class="btn" id="btn_jjcs">基金超市</button>
+        <button class="btn" id="btn_sm">私 募</button>
+        <button class="btn" id="btn_share">分 享</button>
+    </div>
+
+    <div class="line">
+        <button class="btn" id="btn_db">兑 吧</button>
+    </div>
+
 
 </div>
 </body>
 
 
 <script type="text/javascript">
+
+    let idList = ["btn_bzj", "btn_qmm", "btn_jcj", "btn_jjcs", "btn_sm", "btn_share", "btn_db"]
 
     var vConsole = new VConsole();
 
@@ -148,12 +158,16 @@
 
 
 <style type="text/css">
-    .btn {
-        display: block;
+    .line {
+        display: flex;
         margin: 6rem auto;
-        width: 80%;
-        font-size: 3rem;
+        width: 90%;
         height: 10rem;
+    }
+
+    .btn {
+        font-size: 3rem;
+        min-width: 29%;
     }
 
 </style>
