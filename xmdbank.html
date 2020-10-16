@@ -19,6 +19,8 @@
 
     <div class="line">
         <button class="btn" id="btn_db">兑 吧</button>
+
+        <button class="btn" id="btn_face">人 脸</button>
     </div>
 
 
@@ -151,6 +153,16 @@
         };
         AlipayJSBridge.call('jumpIPO', params, res => {
             console.log("jumpIPO", JSON.stringify(res))
+        })
+    }
+    document.getElementById("btn_face").onclick = function (ev) {
+        let params = {
+            apiName: "FaceCheck",
+            sceneType: "0",
+        };
+
+        AlipayJSBridge.call('H5JsApiThirdPartyChannel', params, res => {
+            console.log("FaceCheck", JSON.stringify(res))
         })
     }
 
