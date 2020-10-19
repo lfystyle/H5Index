@@ -59,19 +59,19 @@
     }
 
     document.getElementById("btn_jcj").onclick = function (ev) {
-        AlipayJSBridge.call('LoginPage', res => {
-            console.log("LoginPage", JSON.stringify(res))
-            let srt = JSON.stringify(res.data)
-            srt = encodeURIComponent(srt);
-            console.log("加密参数", srt);
+        // AlipayJSBridge.call('LoginPage', res => {
+        //     console.log("LoginPage", JSON.stringify(res))
+        //     let srt = JSON.stringify(res.data)
+        //     srt = encodeURIComponent(srt);
+        //     console.log("加密参数", srt);
             let param = {
-                jumpUrl: 'https://directbanktest.xmbankonline.com?data=' + srt,
+                jumpUrl: 'https://directbanktest.xmbankonline.com',
                 isNeedDeviceId: '1'
             };
             AlipayJSBridge.call('jumpThirdParty', param, res => {
                 console.log("jumpThirdParty", JSON.stringify(res))
             })
-        })
+        // })
     }
 
     document.getElementById("btn_jjcs").onclick = function (ev) {
