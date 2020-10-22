@@ -174,7 +174,7 @@
             notNeedCheck:"1"
         };
 
-        AlipayJSBridge.call('PayPasswordPage', params, res => {
+        AlipayJSBridge.call('getPayPassword', params, res => {
             console.log("PayPasswordPage", JSON.stringify(res))
         })
     }
