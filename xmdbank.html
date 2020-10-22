@@ -19,8 +19,8 @@
 
     <div class="line">
         <button class="btn" id="btn_db">兑 吧</button>
-
         <button class="btn" id="btn_face">人 脸</button>
+        <button class="btn" id="btn_ym">验密</button>
     </div>
 
 
@@ -64,13 +64,13 @@
         //     let srt = JSON.stringify(res.data)
         //     srt = encodeURIComponent(srt);
         //     console.log("加密参数", srt);
-            let param = {
-                jumpUrl: 'https://directbanktest.xmbankonline.com',
-                isNeedDeviceId: '1'
-            };
-            AlipayJSBridge.call('jumpThirdParty', param, res => {
-                console.log("jumpThirdParty", JSON.stringify(res))
-            })
+        let param = {
+            jumpUrl: 'https://directbanktest.xmbankonline.com',
+            isNeedDeviceId: '1'
+        };
+        AlipayJSBridge.call('jumpThirdParty', param, res => {
+            console.log("jumpThirdParty", JSON.stringify(res))
+        })
         // })
     }
 
@@ -163,6 +163,19 @@
 
         AlipayJSBridge.call('H5JsApiThirdPartyChannel', params, res => {
             console.log("FaceCheck", JSON.stringify(res))
+        })
+    }
+
+    document.getElementById("btn_ym").onclick = function (ev) {
+        let params = {
+            type: "-1",
+            isRequestDataType: "0",
+            cashierType: [2],
+            notNeedCheck:"1"
+        };
+
+        AlipayJSBridge.call('PayPasswordPage', params, res => {
+            console.log("PayPasswordPage", JSON.stringify(res))
         })
     }
 
