@@ -32,6 +32,7 @@
 
 
 <script type="text/javascript">
+import { pushWindow } from "@core/bridge";
 
 let idList = ["btn_bzj", "btn_qmm", "btn_jcj", "btn_jjcs", "btn_sm", "btn_share", "btn_db"]
 
@@ -178,13 +179,14 @@ document.getElementById("btn_hd").onclick = function(ev) {
 
 document.getElementById("btn_risk").onclick = function(ev) {
     let params = {
-        url: '/xm_risk_evaluate/start_index/index.html',
         prodId: "000759",
         registerUrl: true
     }
-    AlipayJSBridge.call('pushWindow', params, res => {
-        console.log("pushWindow", JSON.stringify(res))
-    })
+    pushWindow('/xm_risk_evaluate/start_index/index.html', params);
+
+    // AlipayJSBridge.call('pushWindow', params, res => {
+    //     console.log("pushWindow", JSON.stringify(res))
+    // })
 }
 
 
