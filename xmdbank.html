@@ -25,6 +25,7 @@
 
   <div class="line">
     <button class="btn" id="btn_risk">风险评测</button>
+    <button class="btn" id="btn_open">打开新页面</button>
   </div>
 
 </div>
@@ -186,6 +187,16 @@ document.getElementById("btn_risk").onclick = function(ev) {
     console.log("pushWindow", JSON.stringify(res))
   })
 }
+
+document.getElementById("btn_open").onclick = function(ev) {
+  AlipayJSBridge.call('pushWindow', {
+    url: "http://www.lfystyle.com/index.html"
+  });
+}
+
+document.addEventListener('resume', function(e) {
+  console.log("resumed");
+}, false);
 
 
 </script>
