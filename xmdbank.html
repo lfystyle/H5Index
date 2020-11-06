@@ -195,33 +195,9 @@ document.getElementById("btn_open").onclick = function(ev) {
 }
 
 
-function ready(callback) {
-  // 如果 jsbridge 已经注入则直接调用
-  if (window.AlipayJSBridge) {
-    callback && callback();
-  } else {
-    // 如果没有注入则监听注入的事件
-    document.addEventListener('AlipayJSBridgeReady', callback, false);
-  }
-}
-ready(function() {
-  document.querySelector('a').addEventListener('click', function() {
-    AlipayJSBridge.call('pushWindow', {
-      url: location.pathname
-    });
-  });
-  document.addEventListener('back', function(e) {
-    e.preventDefault();
-    AlipayJSBridge.call('popWindow', {
-      data: {
-        from: location.href,
-        info: Date.now()
-      }
-    });
-  });
-  document.addEventListener('resume', function(event) {
-    alert('页面回退时带过来的内容： ' + JSON.stringify(event.data));
-  });
+
+document.addEventListener('resume', function(event) {
+  alert('页面回退时带过来的内容： ' + JSON.stringify(event.data));
 });
 
 </script>
