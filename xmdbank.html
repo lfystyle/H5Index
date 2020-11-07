@@ -25,6 +25,7 @@
 
   <div class="line">
     <button class="btn" id="btn_risk">风险评测</button>
+    <button class="btn" id="btn_open">打开新页面</button>
   </div>
 
 </div>
@@ -33,159 +34,171 @@
 
 <script type="text/javascript">
 
+let idList = ["btn_bzj", "btn_qmm", "btn_jcj", "btn_jjcs", "btn_sm", "btn_share", "btn_db"]
+
 var vConsole = new VConsole();
 
 
 document.getElementById("btn_bzj").onclick = function(ev) {
 
-    AlipayJSBridge.call('LoginPage', res => {
-        console.log("LoginPage", JSON.stringify(res))
-        let srt = JSON.stringify(res.data)
-        console.log("加密参数", srt);
+  AlipayJSBridge.call('LoginPage', res => {
+    console.log("LoginPage", JSON.stringify(res))
+    let srt = JSON.stringify(res.data)
+    console.log("加密参数", srt);
 
-        // AlipayJSBridge.call('ThirdDecrypt', {decryptData: srt}, res => {
-        //   console.log("ThirdDecrypt", JSON.stringify(res))
-        // })
+    // AlipayJSBridge.call('ThirdDecrypt', {decryptData: srt}, res => {
+    //   console.log("ThirdDecrypt", JSON.stringify(res))
+    // })
 
-        let param = {
-            jumpUrl: 'https://directbanktest.xmbankonline.com/szmy/h5/pages/activity/query_deposit.html?data=' + srt,
-            isNeedDeviceId: '1'
-        };
-        AlipayJSBridge.call('jumpThirdParty', param, res => {
-            console.log("jumpThirdParty", JSON.stringify(res))
-        })
-
+    let param = {
+      jumpUrl: 'https://directbanktest.xmbankonline.com/szmy/h5/pages/activity/query_deposit.html?data=' + srt,
+      isNeedDeviceId: '1'
+    };
+    AlipayJSBridge.call('jumpThirdParty', param, res => {
+      console.log("jumpThirdParty", JSON.stringify(res))
     })
+
+  })
 
 }
 
 document.getElementById("btn_jcj").onclick = function(ev) {
-    // AlipayJSBridge.call('LoginPage', res => {
-    //     console.log("LoginPage", JSON.stringify(res))
-    //     let srt = JSON.stringify(res.data)
-    //     srt = encodeURIComponent(srt);
-    //     console.log("加密参数", srt);
-    let param = {
-        jumpUrl: 'https://directbanktest.xmbankonline.com',
-        isNeedDeviceId: '1'
-    };
-    AlipayJSBridge.call('jumpThirdParty', param, res => {
-        console.log("jumpThirdParty", JSON.stringify(res))
-    })
-    // })
+  // AlipayJSBridge.call('LoginPage', res => {
+  //     console.log("LoginPage", JSON.stringify(res))
+  //     let srt = JSON.stringify(res.data)
+  //     srt = encodeURIComponent(srt);
+  //     console.log("加密参数", srt);
+  let param = {
+    jumpUrl: 'https://directbanktest.xmbankonline.com',
+    isNeedDeviceId: '1'
+  };
+  AlipayJSBridge.call('jumpThirdParty', param, res => {
+    console.log("jumpThirdParty", JSON.stringify(res))
+  })
+  // })
 }
 
 document.getElementById("btn_jjcs").onclick = function(ev) {
-    AlipayJSBridge.call('LoginPage', res => {
-        console.log("LoginPage", JSON.stringify(res))
-        let srt = JSON.stringify(res.data)
-        srt = encodeURIComponent(srt);
-        console.log("加密参数", srt);
-        let param = {
-            jumpUrl: 'https://xmbank.66toutou.com:8445/#/?sourceId=F000004601&data=' + srt,
-            isNeedDeviceId: '1'
-        };
-        AlipayJSBridge.call('jumpThirdParty', param, res => {
-            console.log("jumpThirdParty", JSON.stringify(res))
-        })
+  AlipayJSBridge.call('LoginPage', res => {
+    console.log("LoginPage", JSON.stringify(res))
+    let srt = JSON.stringify(res.data)
+    srt = encodeURIComponent(srt);
+    console.log("加密参数", srt);
+    let param = {
+      jumpUrl: 'https://xmbank.66toutou.com:8445/#/?sourceId=F000004601&data=' + srt,
+      isNeedDeviceId: '1'
+    };
+    AlipayJSBridge.call('jumpThirdParty', param, res => {
+      console.log("jumpThirdParty", JSON.stringify(res))
     })
+  })
 }
 
 
 document.getElementById("btn_qmm").onclick = function(ev) {
 
-    AlipayJSBridge.call('LoginPage', res => {
-        console.log("LoginPage", JSON.stringify(res))
-        let srt = JSON.stringify(res.data)
-        console.log("加密参数", srt);
+  AlipayJSBridge.call('LoginPage', res => {
+    console.log("LoginPage", JSON.stringify(res))
+    let srt = JSON.stringify(res.data)
+    console.log("加密参数", srt);
 
-        // AlipayJSBridge.call('ThirdDecrypt', {decryptData: srt}, res => {
-        //   console.log("ThirdDecrypt", JSON.stringify(res))
-        // })
+    // AlipayJSBridge.call('ThirdDecrypt', {decryptData: srt}, res => {
+    //   console.log("ThirdDecrypt", JSON.stringify(res))
+    // })
 
-        let param = {
-            jumpUrl: 'dev.imanm.com/movie2?data=' + srt,
-            isNeedDeviceId: '1'
-        };
-        AlipayJSBridge.call('jumpThirdParty', param, res => {
-            console.log("jumpThirdParty", JSON.stringify(res))
-        })
-
+    let param = {
+      jumpUrl: 'dev.imanm.com/movie2?data=' + srt,
+      isNeedDeviceId: '1'
+    };
+    AlipayJSBridge.call('jumpThirdParty', param, res => {
+      console.log("jumpThirdParty", JSON.stringify(res))
     })
+
+  })
 
 }
 
 
 document.getElementById("btn_sm").onclick = function(ev) {
-    let params = {
-        type: "0",
-        isRequestDataType: "1",
-        cashierType: "2",
-        sceneType: '021',
-        prodId: "0043",
-        productPrice: "111",
-        orderMoney: "2222",
-        orderAmt: "33"
-    };
-    AlipayJSBridge.call('getPayPassword', params, res => {
-        console.log("LoginPage", JSON.stringify(res))
-    })
+  let params = {
+    type: "0",
+    isRequestDataType: "1",
+    cashierType: "2",
+    sceneType: '021',
+    prodId: "0043",
+    productPrice: "111",
+    orderMoney: "2222",
+    orderAmt: "33"
+  };
+  AlipayJSBridge.call('getPayPassword', params, res => {
+    console.log("LoginPage", JSON.stringify(res))
+  })
 }
 
 document.getElementById("btn_share").onclick = function(ev) {
-    let params = {
-        apiName: "0",
-        isRequestDataType: "1",
-        cashierType: "2",
-        sceneType: '021',
-        prodId: "0043",
-        productPrice: "111",
-        orderMoney: "2222",
-        orderAmt: "33"
-    };
-    AlipayJSBridge.call('getPayPassword', params, res => {
-        console.log("LoginPage", JSON.stringify(res))
-    })
+  let params = {
+    apiName: "0",
+    isRequestDataType: "1",
+    cashierType: "2",
+    sceneType: '021',
+    prodId: "0043",
+    productPrice: "111",
+    orderMoney: "2222",
+    orderAmt: "33"
+  };
+  AlipayJSBridge.call('getPayPassword', params, res => {
+    console.log("LoginPage", JSON.stringify(res))
+  })
 }
 
 document.getElementById("btn_db").onclick = function(ev) {
-    let params = {
-        jumpUrl: "https://78445.activity-1.m.duiba.com.cn/projectx/p56421abe/index.html?appID=78534",
-    };
-    AlipayJSBridge.call('jumpIPO', params, res => {
-        console.log("jumpIPO", JSON.stringify(res))
-    })
+  let params = {
+    jumpUrl: "https://78445.activity-1.m.duiba.com.cn/projectx/p56421abe/index.html?appID=78534",
+  };
+  AlipayJSBridge.call('jumpIPO', params, res => {
+    console.log("jumpIPO", JSON.stringify(res))
+  })
 }
 document.getElementById("btn_face").onclick = function(ev) {
-    let params = {
-        apiName: "FaceCheck",
-        sceneType: "0",
-    };
+  let params = {
+    apiName: "FaceCheck",
+    sceneType: "0",
+  };
 
-    AlipayJSBridge.call('H5JsApiThirdPartyChannel', params, res => {
-        console.log("FaceCheck", JSON.stringify(res))
-    })
+  AlipayJSBridge.call('H5JsApiThirdPartyChannel', params, res => {
+    console.log("FaceCheck", JSON.stringify(res))
+  })
 }
 
 document.getElementById("btn_hd").onclick = function(ev) {
-    let params = {};
-    AlipayJSBridge.call('sendBusiness', params, res => {
-        console.log("sendBusiness", JSON.stringify(res))
-    })
+  let params = {};
+  AlipayJSBridge.call('sendBusiness', params, res => {
+    console.log("sendBusiness", JSON.stringify(res))
+  })
 }
 
 document.getElementById("btn_risk").onclick = function(ev) {
-
-    let param = {
-        jumpUrl: '/xm_risk_evaluate/start_index/index.html',
-        prodId: "000759",
-        registerUrl: true
-    };
-    AlipayJSBridge.call('jumpThirdParty', param, res => {
-        console.log("jumpThirdParty", JSON.stringify(res))
-    })
+  let params = {
+    prodId: "000759",
+    registerUrl: true,
+    url: '/xm_risk_evaluate/start_index/index.html'
+  }
+  AlipayJSBridge.call('pushWindow', params, res => {
+    console.log("pushWindow", JSON.stringify(res))
+  })
 }
 
+document.getElementById("btn_open").onclick = function(ev) {
+  AlipayJSBridge.call('pushWindow', {
+    url: "http://www.lfystyle.com/index.html"
+  });
+}
+
+
+
+document.addEventListener('resume', function(event) {
+  alert('页面回退时带过来的内容： ' + JSON.stringify(event.data));
+});
 
 </script>
 
