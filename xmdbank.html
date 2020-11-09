@@ -24,6 +24,7 @@
   </div>
 
   <div class="line">
+    <button class="btn" id="btn_url">是否注册</button>
     <button class="btn" id="btn_risk">风险评测</button>
     <button class="btn" id="btn_open">打开新页面</button>
   </div>
@@ -174,6 +175,13 @@ document.getElementById("btn_hd").onclick = function(ev) {
   let params = {};
   AlipayJSBridge.call('sendBusiness', params, res => {
     console.log("sendBusiness", JSON.stringify(res))
+  })
+}
+
+document.getElementById("btn_url").onclick = function(ev) {
+  let params = {};
+  AlipayJSBridge.call('getThirdFlag', params, res => {
+    console.log("getThirdFlag", JSON.stringify(res))
   })
 }
 
