@@ -29,6 +29,10 @@
     <button class="btn" id="btn_open">打开新页面</button>
   </div>
 
+
+  <div class="line">
+    <button class="btn" id="btn_fresh">刷新页面</button>
+  </div>
 </div>
 </body>
 
@@ -202,6 +206,11 @@ document.getElementById("btn_open").onclick = function(ev) {
         url: "http://www.lfystyle.com/index.html"
     });
 }
+
+document.getElementById("btn_fresh").onclick = function(ev) {
+    window.location.reload("www.baidu.com/")
+}
+
 
 
 document.addEventListener('resume', function(event) {
